@@ -13,28 +13,66 @@ export default function HomePage() {
 
   return (
     <div className="animate-fade-in">
-      {/* Hero Section */}
-      <section className="hero-gradient text-white py-20 lg:py-28">
+      {/* Hero Section - Compact with background image */}
+      <section 
+        className="relative text-white py-12 lg:py-16 bg-cover bg-center"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=80')`
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display leading-tight">
+          <div className="max-w-2xl">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-display leading-tight">
               Rent Direct from Owners in 55+ Communities
             </h1>
-            <p className="text-xl md:text-2xl text-palm-100 mb-8 leading-relaxed">
-              No fees. No middleman. Connect directly with property owners in The Villages, 
-              Sun City, and other active adult communities.
+            <p className="text-lg md:text-xl text-gray-200 mb-6 leading-relaxed">
+              No fees. No middleman. Connect directly with property owners.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Link to="/browse" className="btn-secondary flex items-center justify-center gap-2">
                 <Search className="w-5 h-5" />
                 Browse Rentals
               </Link>
-              <Link to="/add-listing" className="bg-white text-palm-700 hover:bg-palm-50 font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg text-lg flex items-center justify-center gap-2">
+              <Link to="/add-listing" className="bg-white text-palm-700 hover:bg-palm-50 font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2">
                 <Home className="w-5 h-5" />
                 List Your Property Free
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Communities - Moved up */}
+      <section className="py-8 bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-xl md:text-2xl font-bold text-center mb-6 font-display">
+            Serving 55+ Communities Nationwide
+          </h2>
+
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              { name: 'The Villages, FL', active: true },
+              { name: 'Sun City, AZ', active: false },
+              { name: 'Sun City West, AZ', active: false },
+              { name: 'Laguna Woods, CA', active: false },
+              { name: 'Sun City Hilton Head, SC', active: false },
+              { name: 'Sun City Summerlin, NV', active: false },
+              { name: 'On Top of the World, FL', active: false },
+              { name: 'More Coming Soon...', active: false }
+            ].map((community, index) => (
+              <div 
+                key={index}
+                className={`rounded-full px-4 py-2 text-sm ${
+                  community.active 
+                    ? 'bg-palm-600 text-white' 
+                    : 'bg-gray-800 text-gray-300'
+                }`}
+              >
+                {community.name}
+                {community.active && <span className="ml-2 text-palm-200">• Live</span>}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -147,43 +185,6 @@ export default function HomePage() {
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Communities */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 font-display">
-            Serving 55+ Communities Nationwide
-          </h2>
-          <p className="text-xl text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            Starting with The Villages, FL and expanding to active adult communities across America
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {[
-              'The Villages, FL',
-              'Sun City, AZ',
-              'Sun City West, AZ',
-              'Laguna Woods, CA',
-              'Sun City Hilton Head, SC',
-              'Sun City Summerlin, NV',
-              'On Top of the World, FL',
-              'More Coming Soon...'
-            ].map((community, index) => (
-              <div 
-                key={index}
-                className={`bg-gray-800 rounded-lg p-4 text-center ${
-                  index === 0 ? 'ring-2 ring-palm-500' : ''
-                }`}
-              >
-                <span className="text-lg">{community}</span>
-                {index === 0 && (
-                  <span className="block text-palm-400 text-sm mt-1">Featured</span>
-                )}
-              </div>
-            ))}
           </div>
         </div>
       </section>
