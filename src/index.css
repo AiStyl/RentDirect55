@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-palm-600: #16a34a;
+  --color-palm-700: #15803d;
+  --color-sunset-500: #f97316;
+  --color-sunset-600: #ea580c;
+  --color-sand-100: #f9f5eb;
+  --color-sand-200: #f3ebd7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Source Sans 3', Verdana, Geneva, sans-serif;
+  background-color: #fdfbf7;
+  color: #1f2937;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Crimson Pro', Georgia, Cambria, serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Accessibility - larger text for 55+ audience */
+@layer components {
+  .text-readable {
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+
+  .btn-primary {
+    @apply bg-palm-600 hover:bg-palm-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg text-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-sunset-500 hover:bg-sunset-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg text-lg;
+  }
+
+  .btn-outline {
+    @apply border-2 border-palm-600 text-palm-700 hover:bg-palm-600 hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 text-lg;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 text-lg border-2 border-gray-200 rounded-lg focus:border-palm-500 focus:ring-2 focus:ring-palm-200 focus:outline-none transition-all duration-200;
+  }
+
+  .label {
+    @apply block text-gray-700 font-semibold mb-2 text-lg;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f9f5eb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #16a34a;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #15803d;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+/* Stagger children animations */
+.stagger-children > * {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* Hero gradient */
+.hero-gradient {
+  background: linear-gradient(135deg, #166534 0%, #15803d 50%, #22c55e 100%);
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Equal Housing badge */
+.equal-housing {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 3px solid #22c55e;
+  outline-offset: 2px;
+}
+
+/* Image placeholder */
+.img-placeholder {
+  background: linear-gradient(135deg, #e8dbb8 0%, #f3ebd7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
