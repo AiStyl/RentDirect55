@@ -33,7 +33,7 @@ export default function HomePage() {
             </div>
 
             {/* Right side - Buttons */}
-            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">
+            <div className="flex flex-col sm:flex-row gap-3 lg:items-center">
               <Link to="/browse" className="btn-secondary flex items-center justify-center gap-2">
                 <Search className="w-5 h-5" />
                 Browse Rentals
