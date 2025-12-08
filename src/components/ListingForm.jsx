@@ -100,12 +100,12 @@ export default function ListingForm({ initialData = {}, onSubmit, isLoading }) {
 
   const handleImageUpload = (e) => {
     const files = Array.from(e.target.files)
-    const maxImages = 3 // Free tier limit
-    
+    const maxImages = 10
+
     if (formData.images.length + files.length > maxImages) {
-      setErrors(prev => ({ 
-        ...prev, 
-        images: `Maximum ${maxImages} images allowed (Free tier). Upgrade to Premium for more.` 
+      setErrors(prev => ({
+        ...prev,
+        images: `Maximum ${maxImages} images allowed.`
       }))
       return
     }
@@ -127,7 +127,7 @@ export default function ListingForm({ initialData = {}, onSubmit, isLoading }) {
 
   const validate = () => {
     const newErrors = {}
-    
+
     if (!formData.title.trim()) newErrors.title = 'Title is required'
     if (!formData.description.trim()) newErrors.description = 'Description is required'
     if (!formData.propertyType) newErrors.propertyType = 'Property type is required'
@@ -136,7 +136,7 @@ export default function ListingForm({ initialData = {}, onSubmit, isLoading }) {
     if (!formData.contactEmail && !formData.contactPhone) {
       newErrors.contactEmail = 'At least one contact method is required'
     }
-    
+
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
@@ -153,7 +153,7 @@ export default function ListingForm({ initialData = {}, onSubmit, isLoading }) {
       {/* Basic Info */}
       <section className="bg-white rounded-xl shadow-md p-6">
         <h2 className="text-2xl font-semibold text-gray-900 mb-6 font-display">Property Details</h2>
-        
+
         <div className="space-y-6">
           {/* Title */}
           <div>
@@ -254,7 +254,7 @@ export default function ListingForm({ initialData = {}, onSubmit, isLoading }) {
       {/* Rental Details */}
       <section className="bg-white rounded-xl shadow-md p-6">
         <h2 className="text-2xl font-semibold text-gray-900 mb-6 font-display">Rental Information</h2>
-        
+
         <div className="space-y-6">
           {/* Rental Type */}
           <div>
@@ -340,7 +340,7 @@ export default function ListingForm({ initialData = {}, onSubmit, isLoading }) {
       {/* Amenities */}
       <section className="bg-white rounded-xl shadow-md p-6">
         <h2 className="text-2xl font-semibold text-gray-900 mb-6 font-display">Amenities</h2>
-        
+
         <div className="flex flex-wrap gap-3">
           {AMENITIES.map(amenity => (
             <button
@@ -362,8 +362,8 @@ export default function ListingForm({ initialData = {}, onSubmit, isLoading }) {
       {/* Photos */}
       <section className="bg-white rounded-xl shadow-md p-6">
         <h2 className="text-2xl font-semibold text-gray-900 mb-2 font-display">Photos</h2>
-        <p className="text-gray-500 mb-6">Upload up to 3 photos (Free tier). Premium members can add more.</p>
-        
+        <p className="text-gray-500 mb-6">Upload up to 10 photos to showcase your property.</p>
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {formData.images.map((image, index) => (
             <div key={index} className="relative aspect-square rounded-lg overflow-hidden bg-gray-100">
@@ -377,8 +377,8 @@ export default function ListingForm({ initialData = {}, onSubmit, isLoading }) {
               </button>
             </div>
           ))}
-          
-          {formData.images.length < 3 && (
+
+          {formData.images.length < 10 && (
             <label className="aspect-square rounded-lg border-2 border-dashed border-gray-300 hover:border-palm-500 cursor-pointer flex flex-col items-center justify-center gap-2 text-gray-500 hover:text-palm-600 transition-colors">
               <Upload className="w-8 h-8" />
               <span className="text-sm">Add Photo</span>
@@ -399,7 +399,7 @@ export default function ListingForm({ initialData = {}, onSubmit, isLoading }) {
       <section className="bg-white rounded-xl shadow-md p-6">
         <h2 className="text-2xl font-semibold text-gray-900 mb-2 font-display">Contact Information</h2>
         <p className="text-gray-500 mb-6">This information will be displayed publicly so renters can contact you directly.</p>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="label">Email Address</label>
