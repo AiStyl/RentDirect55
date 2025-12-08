@@ -20,10 +20,10 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-gray-400 text-lg max-w-md mb-6">
-              Connect directly with property owners in 55+ active adult communities. 
+              Connect directly with property owners in 55+ active adult communities.
               No fees, no middleman — just simple, direct rentals.
             </p>
-            
+
             {/* Equal Housing */}
             <div className="flex items-center gap-3 bg-gray-800 rounded-lg p-3 inline-flex">
               <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
@@ -77,13 +77,19 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-10 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-center md:text-left">
-              © {currentYear} RentDirect55. All rights reserved.
-            </p>
-            <p className="text-gray-500 text-sm text-center md:text-right max-w-lg">
-              RentDirect55 is a listing service only. We do not participate in rental transactions 
-              and are not responsible for agreements between owners and renters.
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-gray-500 text-center md:text-left">
+                © {currentYear} RentDirect55. All rights reserved.
+              </p>
+              <p className="text-gray-500 text-sm text-center md:text-right max-w-lg">
+                RentDirect55 is a listing service only. We do not participate in rental transactions
+                and are not responsible for agreements between owners and renters.
+              </p>
+            </div>
+            <p className="text-gray-600 text-xs text-center">
+              RentDirect55 is not affiliated with, endorsed by, or sponsored by The Villages® or any other communities listed. 
+              All trademarks are property of their respective owners.
             </p>
           </div>
         </div>
