@@ -87,7 +87,7 @@ export default function Footer() {
                 and are not responsible for agreements between owners and renters.
               </p>
             </div>
-            <p className="text-gray-600 text-xs text-center">
+            <p className="text-gray-400 text-xs text-center">
               RentDirect55 is not affiliated with, endorsed by, or sponsored by The Villages® or any other communities listed. 
               All trademarks are property of their respective owners.
             </p>
