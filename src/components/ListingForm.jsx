@@ -73,7 +73,6 @@ export default function ListingForm({ initialData = {}, onSubmit, isLoading }) {
     priceType: initialData.priceType || 'month',
     amenities: initialData.amenities || [],
     contactEmail: initialData.contactEmail || '',
-    contactPhone: initialData.contactPhone || '',
     availableFrom: initialData.availableFrom || '',
     availableTo: initialData.availableTo || '',
     images: initialData.images || []
@@ -133,8 +132,8 @@ export default function ListingForm({ initialData = {}, onSubmit, isLoading }) {
     if (!formData.propertyType) newErrors.propertyType = 'Property type is required'
     if (!formData.community) newErrors.community = 'Community is required'
     if (!formData.price) newErrors.price = 'Price is required'
-    if (!formData.contactEmail && !formData.contactPhone) {
-      newErrors.contactEmail = 'At least one contact method is required'
+    if (!formData.contactEmail) {
+      newErrors.contactEmail = 'Email address is required'
     }
 
     setErrors(newErrors)
@@ -398,33 +397,19 @@ export default function ListingForm({ initialData = {}, onSubmit, isLoading }) {
       {/* Contact Info */}
       <section className="bg-white rounded-xl shadow-md p-6">
         <h2 className="text-2xl font-semibold text-gray-900 mb-2 font-display">Contact Information</h2>
-        <p className="text-gray-500 mb-6">This information will be displayed publicly so renters can contact you directly.</p>
+        <p className="text-gray-500 mb-6">Your email is kept private. Renters will contact you through our secure form and inquiries will be sent to your email.</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label className="label">Email Address</label>
-            <input
-              type="email"
-              name="contactEmail"
-              value={formData.contactEmail}
-              onChange={handleChange}
-              placeholder="your@email.com"
-              className={`input-field ${errors.contactEmail ? 'border-red-500' : ''}`}
-            />
-            {errors.contactEmail && <p className="text-red-500 text-sm mt-1">{errors.contactEmail}</p>}
-          </div>
-
-          <div>
-            <label className="label">Phone Number</label>
-            <input
-              type="tel"
-              name="contactPhone"
-              value={formData.contactPhone}
-              onChange={handleChange}
-              placeholder="(555) 123-4567"
-              className="input-field"
-            />
-          </div>
+        <div>
+          <label className="label">Email Address *</label>
+          <input
+            type="email"
+            name="contactEmail"
+            value={formData.contactEmail}
+            onChange={handleChange}
+            placeholder="your@email.com"
+            className={`input-field max-w-md ${errors.contactEmail ? 'border-red-500' : ''}`}
+          />
+          {errors.contactEmail && <p className="text-red-500 text-sm mt-1">{errors.contactEmail}</p>}
         </div>
       </section>
 
