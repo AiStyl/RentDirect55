@@ -14,22 +14,26 @@ export default function HomePage() {
   return (
     <div className="animate-fade-in">
       {/* Hero Section - Compact with background image */}
-      <section 
+      <section
         className="relative text-white py-12 lg:py-16 bg-cover bg-center"
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=80')`
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-display leading-tight">
-              Rent Direct from Owners in 55+ Communities
-            </h1>
-            <p className="text-lg md:text-xl text-gray-200 mb-6 leading-relaxed">
-              No fees. No middleman. Connect directly with property owners.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            {/* Left side - Title and tagline */}
+            <div className="max-w-2xl">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-display leading-tight">
+                Rent Direct from Owners in 55+ Communities
+              </h1>
+              <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
+                No fees. No middleman. Connect directly with property owners.
+              </p>
+            </div>
+
+            {/* Right side - Buttons */}
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">
               <Link to="/browse" className="btn-secondary flex items-center justify-center gap-2">
                 <Search className="w-5 h-5" />
                 Browse Rentals
@@ -61,11 +65,11 @@ export default function HomePage() {
               { name: 'On Top of the World, FL', active: false },
               { name: 'More Coming Soon...', active: false }
             ].map((community, index) => (
-              <div 
+              <div
                 key={index}
                 className={`rounded-full px-4 py-2 text-sm ${
-                  community.active 
-                    ? 'bg-palm-600 text-white' 
+                  community.active
+                    ? 'bg-palm-600 text-white'
                     : 'bg-gray-800 text-gray-300'
                 }`}
               >
@@ -87,7 +91,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-xl font-semibold mb-3 font-display">Free to List</h3>
               <p className="text-gray-600 text-lg">
-                List your property at no cost. No subscription fees, no listing fees, 
+                List your property at no cost. No subscription fees, no listing fees,
                 no commission on rentals.
               </p>
             </div>
@@ -98,7 +102,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-xl font-semibold mb-3 font-display">Direct Communication</h3>
               <p className="text-gray-600 text-lg">
-                Connect directly with owners or renters. No booking platform 
+                Connect directly with owners or renters. No booking platform
                 in the middle taking a cut.
               </p>
             </div>
@@ -109,7 +113,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-xl font-semibold mb-3 font-display">Built for 55+</h3>
               <p className="text-gray-600 text-lg">
-                Designed specifically for active adult communities. Easy to use, 
+                Designed specifically for active adult communities. Easy to use,
                 with listings from real community members.
               </p>
             </div>
@@ -148,7 +152,7 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <Link 
+              <Link
                 to="/add-listing"
                 className="btn-primary mt-8 inline-flex items-center gap-2"
               >
@@ -177,7 +181,7 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <Link 
+              <Link
                 to="/browse"
                 className="btn-secondary mt-8 inline-flex items-center gap-2"
               >
@@ -196,7 +200,7 @@ export default function HomePage() {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Whether you're looking for your next rental or have a property to list, 
+            Whether you're looking for your next rental or have a property to list,
             RentDirect55 makes it simple.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
